@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .page { display: none; }
+        .page.active { display: block; }
+        .nav-link { cursor: pointer; transition: all 0.3s ease; }
+        .nav-link.active { color: #2563eb; font-weight: 600; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .skill-bar { transition: width 1s ease-in-out; }
+        .fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.6s ease forwards; }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition { animation: pageSlide 0.4s ease-in-out; }
+        @keyframes pageSlide {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800 cursor-pointer" onclick="showPage('home')">Bandhavya's Portfolio</div>
+                <div class="hidden md:flex space-x-8">
+                    <span class="nav-link active" onclick="showPage('home')">Home</span>
+                    <span class="nav-link" onclick="showPage('about')">About</span>
+                    <span class="nav-link" onclick="showPage('projects')">Projects</span>
+                    <span class="nav-link" onclick="showPage('skills')">Skills</span>
+                    <span class="nav-link" onclick="showPage('contact')">Contact</span>
+                </div>
+                <button id="mobile-menu" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="gradient-bg min-h-screen flex items-center justify-center text-white">
+            <div class="text-center px-6 fade-in">
+                <div class="w-32 h-32 bg-white/20 rounded-full mx-auto mb-8 flex items-center justify-center">
+                    <span class="text-6xl">👋</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Hello, I'm Bandhavya</h1>
+                <p class="text-xl md:text-2xl mb-8 text-white/90">Skilled Computer Science Engineer</p>
+                <p class="text-lg mb-12 text-white/80 max-w-2xl mx-auto">I create beautiful, functional digital experiences that solve real problems and delight users.</p>
+                <div class="space-x-4">
+                    <button onclick="showPage('projects')" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">View My Work</button>
+                    <button onclick="showPage('contact')" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">Get In Touch</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <div class="pt-24 pb-20 bg-white min-h-screen">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">About Me</h1>
+                    <p class="text-gray-600 text-xl max-w-3xl mx-auto">I'm a passionate Computer Science Engineer with expertise in scripting & automation (Python), and web development (HTML/CSS). I enjoy solving complex problems, optimizing systems, and building efficient, user-friendly applications.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in">
+                        <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 h-80 flex items-center justify-center relative">
+                            <!-- Profile Picture Container -->
+                            <div class="w-48 h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center border-4 border-white shadow-xl">
+                                <!-- Replace this emoji with your actual photo -->
+                                <span class="text-7xl"><img src="Bandhavya.jpg" alt="Bandhavya Profile" class="w-full h-full rounded-full object-cover"></span>
+                                <!-- To use your actual photo, replace the span above with:
+                                 -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-6">My Journey</h2>
+                        <p class="text-gray-600 mb-6 text-lg">Currently pursuing Computer Science & Engineering, I started coding 2 years ago and fell in love with the endless possibilities of technology. I'm focused on learning modern web development and software engineering principles.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">🎯</span>
+                                <span class="text-gray-700 text-lg">Problem-solving focused</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">🚀</span>
+                                <span class="text-gray-700 text-lg">Always learning new technologies</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-4">🤝</span>
+                                <span class="text-gray-700 text-lg">Collaborative team player</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 fade-in">
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">🎓</span>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Education</h3>
+                        <p class="text-gray-600">Computer Science & Engineering Student</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">💼</span>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Experience</h3>
+                        <p class="text-gray-600">2+ years learning web development</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">🏆</span>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Projects</h3>
+                        <p class="text-gray-600">Academic & personal projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Page -->
+    <div id="projects" class="page">
+        <div class="pt-24 pb-20 bg-gray-50 min-h-screen">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">My Projects</h1>
+                    <p class="text-gray-600 text-xl">Here are some of my recent works that showcase my skills and creativity.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                        <div class="bg-gradient-to-br from-blue-400 to-blue-600 h-48 flex items-center justify-center">
+                            <span class="text-6xl text-white">🌐</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Phishing Predictor using Machine Learning</h3>
+                            <p class="text-gray-600 mb-4">Built a model to detect phishing websites using supervised learning techniques. 
+Handled data preprocessing, feature selection, and accuracy evaluation.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">python</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Jupyter Notebook</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">HTML</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Flask Framework</span>
+                            </div>
+                            <!--<div class="flex space-x-4">
+                                <button class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</button>
+                                <button class="text-gray-600 hover:text-gray-800 font-medium">GitHub</button>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                        <div class="bg-gradient-to-br from-green-400 to-green-600 h-48 flex items-center justify-center">
+                            <span class="text-6xl text-white">📱</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Hand Gesture-Based Attendance System</h3>
+                            <p class="text-gray-600 mb-4">Designed a system to mark attendance using hand gesture recognition through a 
+webcam.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">MediaPipe</span>
+                               
+                            </div>
+                            <!--<div class="flex space-x-4">
+                                <button class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</button>
+                                <button class="text-gray-600 hover:text-gray-800 font-medium">GitHub</button>
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                        <div class="bg-gradient-to-br from-purple-400 to-purple-600 h-48 flex items-center justify-center">
+                            <span class="text-6xl text-white">🚓</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibent text-gray-800 mb-2">Road-accident prediction using Machine learning</h3>
+                            <p class="text-gray-600 mb-4">ABuilt a predictive model using Random Forest in Python to identify high-risk accident 
+zones.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                                <span class="bg-gray-100 text-pink-800 px-3 py-1 rounded-full text-sm">NumPy</span>
+                                <span class="bg-gray-100 text-violet-800 px-3 py-1 rounded-full text-sm">Matplotlib</span>
+                            </div>
+                            <!--div class="flex space-x-4">
+                                <button class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</button>
+                                <button class="text-gray-600 hover:text-gray-800 font-medium">GitHub</button>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Page -->
+    <div id="skills" class="page">
+        <div class="pt-24 pb-20 bg-white min-h-screen">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">Skills & Technologies</h1>
+                    <p class="text-gray-600 text-xl">Technologies I work with to bring ideas to life.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-8">Frontend</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">HTML</span>
+                                    <span class="text-gray-500">90%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-blue-600 h-3 rounded-full skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">CSS</span>
+                                    <span class="text-gray-500">85%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-yellow-500 h-3 rounded-full skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">JavaScript</span>
+                                    <span class="text-gray-500">88%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-green-500 h-3 rounded-full skill-bar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-8">Backend</h2>
+                        <div class="space-y-6">
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">Python / Django</span>
+                                    <span class="text-gray-500">75%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-blue-500 h-3 rounded-full skill-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">Database (SQL/NoSQL)</span>
+                                    <span class="text-gray-500">80%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-purple-500 h-3 rounded-full skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-700 text-lg">Cloud Services (GCP)</span>
+                                    <span class="text-gray-500">70%</span>
+                                </div>
+                                <div class="bg-gray-200 rounded-full h-3">
+                                    <div class="bg-orange-500 h-3 rounded-full skill-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-6 fade-in">
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">⚡</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Performance</h3>
+                        <p class="text-gray-600 text-sm">Optimized code and fast loading times</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">📱</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Responsive</h3>
+                        <p class="text-gray-600 text-sm">Works perfectly on all devices</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">🔒</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Security</h3>
+                        <p class="text-gray-600 text-sm">Best practices for secure applications</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl">
+                        <span class="text-4xl mb-4 block">🎨</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Design</h3>
+                        <p class="text-gray-600 text-sm">Beautiful and intuitive user interfaces</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="pt-24 pb-20 bg-gray-50 min-h-screen">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16 fade-in">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-6">Let's Work Together</h1>
+                    <p class="text-gray-600 text-xl">Have a project in mind? I'd love to hear about it and discuss how we can bring your ideas to life.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-8">Get In Touch</h2>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">📧</span>
+                                <div>
+                                    <p class="text-gray-800 font-medium">Email</p>
+                                    <p class="text-gray-600">bandhavyaks2004@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">📱</span>
+                                <div>
+                                    <p class="text-gray-800 font-medium">Phone</p>
+                                    <p class="text-gray-600">+91 8904827379</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-3xl mr-4">📍</span>
+                                <div>
+                                    <p class="text-gray-800 font-medium">Coorg</p>
+                                    <p class="text-gray-600">Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <button class="bg-pink-500 text-white p-4 rounded-full hover:bg-pink-600 transition-colors" title="Instagram">
+                                    <!-- Instagram SVG Icon -->
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                    </svg>
+                                </button>
+                            </a>
+                            <!-- GitHub -->
+                            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <button class="bg-gray-800 text-white p-4 rounded-full hover:bg-gray-900 transition-colors" title="GitHub">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                                    </svg>
+                                </button>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <button class="bg-blue-700 text-white p-4 rounded-full hover:bg-blue-800 transition-colors" title="LinkedIn">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="bg-white rounded-xl shadow-lg p-8">
+                            <div class="text-center mb-6">
+                                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-2xl">📝</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold text-gray-800">Send Message</h3>
+                                <p class="text-gray-600 text-sm mt-2">Feel Free to send the message😊</p>
+                            </div>
+                            <form class="space-y-6">
+                                <input type="text" placeholder="Your Name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg">
+                                <input type="email" placeholder="Your Email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg">
+                                <input type="text" placeholder="Subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg">
+                                <textarea placeholder="Your Message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"></textarea>
+                                <button type="button" onclick="showDemoMessage()" class="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-4">© 2025 Bandhavya Portfolio. Built with passion and code.</p>
+            <p class="text-gray-500 text-sm">Designed and developed by Bandhavya</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentPage = 'home';
+
+        function showPage(pageId) {
+            // Hide current page
+            const currentPageEl = document.getElementById(currentPage);
+            if (currentPageEl) {
+                currentPageEl.classList.remove('active');
+            }
+
+            // Show new page
+            const newPageEl = document.getElementById(pageId);
+            if (newPageEl) {
+                newPageEl.classList.add('active');
+                newPageEl.classList.add('page-transition');
+                
+                // Remove transition class after animation
+                setTimeout(() => {
+                    newPageEl.classList.remove('page-transition');
+                }, 400);
+            }
+
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const activeNavLink = Array.from(document.querySelectorAll('.nav-link')).find(link => 
+                link.textContent.toLowerCase() === pageId
+            );
+            if (activeNavLink) {
+                activeNavLink.classList.add('active');
+            }
+
+            currentPage = pageId;
+
+            // Trigger animations for the new page
+            setTimeout(() => {
+                const fadeElements = newPageEl.querySelectorAll('.fade-in');
+                fadeElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s forwards`;
+                    }, 100);
+                });
+
+                // Animate skill bars if on skills page
+                if (pageId === 'skills') {
+                    const skillBars = newPageEl.querySelectorAll('.skill-bar');
+                    skillBars.forEach((bar, index) => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 500 + (index * 100));
+                    });
+                }
+            }, 200);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', function() {
+            alert('Mobile menu would open here in a full implementation!');
+        });
+
+        // Demo message for contact form
+        function showDemoMessage() {
+            alert('Sent');
+        }
+
+        // Initialize page animations on load
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970153b500be3d34',t:'MTc1NTM1MTQ1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
